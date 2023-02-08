@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import Constants from "expo-constants";
 import * as React from "react";
-import { View, Image, StyleSheet, Pressable, Alert } from "react-native";
+import { ImageBackground, View, Image, StyleSheet, Pressable } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export function Start() {
@@ -12,12 +12,13 @@ export function Start() {
     return (
         <SafeAreaProvider>
             <View style={styles.container}>
-                <Image source={logoImages} style={styles.logo}/>
+                <ImageBackground source={require("../../assets/img/wallpaper.png")} style={styles.wallpaper}>
+                    <Image source={logoImages} style={styles.logo}/>
 
-                <Pressable onPress={() => navigation.navigate("Cardslist")}>
-                    <Image source={startImages} style={styles.logo}/>
-                </Pressable>
-            
+                    <Pressable onPress={() => navigation.navigate("Cardslist")}>
+                        <Image source={startImages} style={styles.logo}/>
+                    </Pressable>
+                </ImageBackground>
             </View>
         </SafeAreaProvider>
     )
@@ -32,7 +33,11 @@ const styles = StyleSheet.create({
     },
     logo: {
         width: 'parent',
-        height: 260
-        
+        height: 260  
     },
+    wallpaper: {
+        flex: 1,
+        resizeMode: 'cover',
+        justifyContent: 'center',
+    }
   });

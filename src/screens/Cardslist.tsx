@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  ImageBackground, 
   SafeAreaView,
   StyleSheet,
   StatusBar,
@@ -14,8 +15,7 @@ import { fetchData } from "../hooks/useCard";
 
 const Cards = ({ cards }: any) => {
     const { name, type, race, card_images} = cards;
-    // const result = card_images.map()
-    // console.log(result)
+    const card_image = card_images[0].image_url_cropped
     return (
       <Card style={styles.Card}>
         <Card.Title title={name} />
@@ -23,7 +23,9 @@ const Cards = ({ cards }: any) => {
           <Text variant="bodyMedium">type : {type}</Text>
           <Text variant="bodyMedium">race : {race}</Text>
         </Card.Content>
-        {/* <Card.Cover source={card_images} style={styles.imagecard}/> */}
+        <View style={styles.cardpic}>
+            <Card.Cover source={card_image} style={styles.imagecard}/>
+        </View>
       </Card>
     );
   };
@@ -41,10 +43,12 @@ export const Cardslist = () => {
     console.log(data);
     return (
       <SafeAreaView style={styles.safeContainer}>
-        <FlatList
-          data={data.data}
-          renderItem={({ item }) => <Cards cards={item} />}
-        />
+        <ImageBackground source={require("../../assets/img/wallpaper.png")} style={styles.wallpaper}>
+            <FlatList
+            data={data.data}
+            renderItem={({ item }) => <Cards cards={item} />}
+            />
+        </ImageBackground>
       </SafeAreaView>
     );
 }
@@ -59,7 +63,16 @@ const styles = StyleSheet.create({
       margin: 10,
     },
     imagecard: {
-        height: 50,
-        width: 50,
+        height: 200,
+        width: "70%",
+    },
+    cardpic: {
+        textAlign: "center",
+        paddingLeft: '20%',
+    },
+    wallpaper: {
+        flex: 1,
+        resizeMode: 'cover',
+        justifyContent: 'center',
     }
   });
