@@ -34,8 +34,13 @@ export const Cardslist = () => {
     const { isLoading, isError, data } = useQuery(["starships"], fetchData);
 
     if (isLoading) {
+        
       console.log("loading");
-      return <List />;
+      return (
+        <ImageBackground source={require("../../assets/img/wallpaper.png")} style={styles.wallpaper}>
+            <List />
+        </ImageBackground>
+        );
     }
     if (isError) {
       return <Text>Something bad happened…</Text>;
