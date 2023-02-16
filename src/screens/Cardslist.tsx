@@ -11,7 +11,7 @@ import { Card, Text } from "react-native-paper";
 import { useQuery } from "@tanstack/react-query";
 import { List } from "react-content-loader";
 
-import { fetchData } from "../hooks/useCard";
+import { fetchData } from "../hooks/UseCard";
 
 const Cards = ({ cards }: any) => {
     const { name, type, race, card_images} = cards;
