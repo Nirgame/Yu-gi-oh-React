@@ -18,7 +18,7 @@ Voici mon projet réaliser en React à l'aide de l'API suivante :
 
 [Lien expo de l'application][expo]
 
-![Alt Text](https://i.ibb.co/HxmWNDd/YUGIOHproject.gif)
+https://github.com/Nirgame/Yu-gi-oh-React/tree/main/assets/YUGIOHproject.gif
 
 [//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"
 [expo]: https://expo.dev/@nirgame/yugiohBrownFlorian?serviceType=classic&distribution=expo-go
